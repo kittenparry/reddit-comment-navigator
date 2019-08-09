@@ -46,6 +46,10 @@ rcn_sc_sel = 'rcn-selected-comment'
 rcn_sel_el = document.getElementsByClassName('sitetable nestedlisting')[0].children[0].children[2];
 rcn_sel_el.classList.add(rcn_sc_sel);
 
+/* * * * * * * * * * * * * * *
+ * NAVIGATION RELATED BEGIN *
+ * * * * * * * * * * * * * */
+
 // select prev & next elements on the same level
 change_sel_com_same = (dire) => {
 	if (rcn_sc <= 0 && dire == 'left') {
@@ -83,7 +87,7 @@ change_sel_com_lvl = (dire) => {
 	check_if_in_view();
 }
 
-/* * * * * * * * *
+/* * * * * * * * * *
  * EXTERNAL BEGIN *
  * * * * * * * * */
 
@@ -111,7 +115,7 @@ rcn_is_out_of_viewport = (elem) => {
 	return out;
 };
 
-/* * * * * * * *
+/* * * * * * * * *
  * EXTERNAL END *
  * * * * * * * */
 
@@ -121,6 +125,22 @@ check_if_in_view = () => {
 		rcn_sel_el.scrollIntoView();
 	}
 };
+
+/* * * * * * * * * * * * * *
+ * NAVIGATION RELATED END *
+ * * * * * * * * * * * * *
+
+ * * * * * * * * * * * * * * * *
+ * FUNCTIONALITY RELATED BEGIN *
+ * * * * * * * * * * * * * * * */
+
+collapse_sel = () => {
+	rcn_sel_el.children[0].children[0].click();
+};
+
+/* * * * * * * * * * * * * * * *
+ * FUNCTIONALITY RELATED BEGIN *
+ * * * * * * * * * * * * * * * */
 
 
 // key functions
@@ -148,7 +168,7 @@ red_com_nav = (e) => {
 				//
 				break;
 			case 82: // r - collapse/expand
-				//
+				collapse_sel();
 				break;
 			default:
 		}
