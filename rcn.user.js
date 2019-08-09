@@ -58,6 +58,8 @@ rcn_dep = 0;
 rcn_sc_sel = 'rcn-selected-comment'
 // so to not scroll to view initially
 rcn_init = true;
+// selected element
+rcn_sel_el = null;
 
 // remove the styling from last selected value
 // add to the new one
@@ -68,6 +70,7 @@ style_sel_com = (sel) => {
 	}
 	comments[rcn_sc].children[2].classList.remove(rcn_sc_sel)
 	comments[sel].children[2].classList.add(rcn_sc_sel);
+	rcn_sel_el = comments[sel].children[2];
 	if (!rcn_init) {
 		comments[sel].scrollIntoView();
 		// comments[sel].focus(); // not working
@@ -78,6 +81,22 @@ style_sel_com = (sel) => {
 
 // start with first comment selected
 style_sel_com(rcn_sc);
+
+change_sel_com_lvl = (dire) => {
+	if (rcn_dep == 0 && dire == 'up') {
+		return;
+	}
+	rcn_sel_el.classList.remove(rcn_sc_sel);
+	if (dire == 'down') {
+		rcn_sel_el = rcn_sel_el.parentElement.children[3].children[0].children[0].children[2];
+		rcn_dep += 1;
+	} else {
+		rcn_sel_el = rcn_sel_el.parentElement.parentElement.parentElement.parentElement.children[2];
+		rcn_dep -= 1;
+	}
+	rcn_sel_el.classList.add(rcn_sc_sel);
+	rcn_sel_el.scrollIntoView();
+}
 
 // key functions
 red_com_nav = (e) => {
@@ -92,10 +111,10 @@ red_com_nav = (e) => {
 				style_sel_com(rcn_sc + 1);
 				break;
 			case 74: // j - move one level up
-				//
+				change_sel_com_lvl('up');
 				break;
 			case 75: // k - move one level down
-				//
+				change_sel_com_lvl('down');
 				break;
 			case 81: // q - upvote
 				//
