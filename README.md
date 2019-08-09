@@ -19,6 +19,6 @@ Current functionality:
 * all with your keyboard keys
 
 Issues:
-* Cursor position resets to 0 when climbing (#1)
-* If no more comments are present, tries to go down to nether realms (#2)
-* Upvoting/downvoting in quick succession doesn't register every action (see what you get by refreshing the page) (#4)
+* Cursor position resets to 0 when climbing ([#1](https://github.com/kittenparry/reddit-comment-navigator/issues/1))
+* If no more comments are present, tries to go down to nether realms ([#2](https://github.com/kittenparry/reddit-comment-navigator/issues/2))
+* Upvoting/downvoting in quick succession doesn't register every action (see what you get by refreshing the page) ([#4](https://github.com/kittenparry/reddit-comment-navigator/issues/4))
