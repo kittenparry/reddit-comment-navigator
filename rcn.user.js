@@ -153,9 +153,9 @@ rcn_vote = (doot) => {
 	rcn_sel_el.parentElement.children[1].children[doot].click();
 };
 
-/* * * * * * * * * * * * * * * *
+/* * * * * * * * * * * * * * *
  * FUNCTIONALITY RELATED END *
- * * * * * * * * * * * * * * * */
+ * * * * * * * * * * * * * * */
 
 
 // key functions
