@@ -26,6 +26,6 @@ Issues:
 
 ### LICENSING
 
-Incorporates code by Chris Ferdinandi (function [rcn_is_out_of_viewport](https://github.com/kittenparry/reddit-comment-navigator/blob/570bcfcff4a23435d19cca22996d72a89be54836/rcn.user.js#L116)), licensed under [MIT License](https://choosealicense.com/licenses/mit/).
+Incorporates code by Chris Ferdinandi (function [rcn_is_out_of_viewport](https://github.com/kittenparry/reddit-comment-navigator/blob/570bcfcff4a23435d19cca22996d72a89be54836/rcn.user.js#L116)), licensed under [MIT License](https://gomakethings.com/mit/).
 
 The rcn script itself is licensed under GNU General Public License v3.0 (GPL-3.0), see [LICENSE](LICENSE).
