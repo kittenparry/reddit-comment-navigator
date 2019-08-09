@@ -138,6 +138,14 @@ collapse_sel = () => {
 	rcn_sel_el.children[0].children[0].click();
 };
 
+rcn_vote = (doot) => {
+	if (doot == 'up') {
+		rcn_sel_el.parentElement.children[1].children[0].click();
+	} else {
+		rcn_sel_el.parentElement.children[1].children[1].click();
+	}
+};
+
 /* * * * * * * * * * * * * * * *
  * FUNCTIONALITY RELATED BEGIN *
  * * * * * * * * * * * * * * * */
@@ -162,10 +170,10 @@ red_com_nav = (e) => {
 				change_sel_com_lvl('down');
 				break;
 			case 81: // q - upvote
-				//
+				rcn_vote('up');
 				break;
 			case 69: // e - downvote
-				//
+				rcn_vote('down');
 				break;
 			case 82: // r - collapse/expand
 				collapse_sel();
