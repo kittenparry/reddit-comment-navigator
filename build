@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# appends the version number to script
+# and moves it to builds/
+# has nothing to do with rcn's functionality
+
+file='rcn.user.js'
+
+# get line 4 which contains version number
+counter=0
+while read -r line
+	do
+		counter=$((counter+1))
+		if [ $counter == 4 ]; then
+			line_ver="$line"
+			break
+		fi
+	done < "$file"
+
+# split the line by spaces, 3rd value is version number
+IFS=' ' read -r -a version <<< $line_ver
+unset IFS
+
+# move the script to builds/ with version number attached
+cp $file builds/"rcn-${version[2]}.user.js"
