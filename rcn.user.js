@@ -50,11 +50,34 @@ for (i = 0; i < comments_div.children.length; i++) {
 }
 
 // oh no, a global variable
-rcn_selected_comment = 0;
+// selected comment
+rcn_sc = 0;
+// selected level depth
+rcn_dep = 0;
+// style class for selected comment
+rcn_sc_sel = 'rcn-selected-comment'
+// so to not scroll to view initially
+rcn_init = true;
+
+// remove the styling from last selected value
+// add to the new one
+// set selected_comment to new value
+style_sel_com = (sel) => {
+	if (sel < 0) {
+		sel = 0;
+	}
+	comments[rcn_sc].children[2].classList.remove(rcn_sc_sel)
+	comments[sel].children[2].classList.add(rcn_sc_sel);
+	if (!rcn_init) {
+		comments[sel].scrollIntoView();
+		// comments[sel].focus(); // not working
+	}
+	rcn_init = false;
+	rcn_sc = sel;
+}
 
 // start with first comment selected
-comments[0].children[2].classList.add('rcn-selected-comment')
-
+style_sel_com(rcn_sc);
 
 // key functions
 red_com_nav = (e) => {
@@ -63,10 +86,10 @@ red_com_nav = (e) => {
 	if (type != 'text' && tag != 'textarea' && type != 'search') {
 		switch (e.keyCode) {
 			case 72: // h - prev on same level
-				//
+				style_sel_com(rcn_sc - 1);
 				break;
 			case 76: // l - next on same level
-				//
+				style_sel_com(rcn_sc + 1);
 				break;
 			case 74: // j - move one level up
 				//
