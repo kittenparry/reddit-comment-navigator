@@ -1,7 +1,9 @@
-# reddit-comment-navigator
+# reddit Comment Navigator (rcn)
 Use keyboard keys to upvote, downvote, collapse/expand & navigate through comments.
 
 ```
+KEYBINDS
+--------
 h - prev on same level
 l - next on same level
 j - move one level up
@@ -10,3 +12,13 @@ q - upvote
 e - downvote
 r - collapse/expand
 ```
+Current functionality:
+* Navigate through comments
+* Upvote/downvote them
+* Collapse/expand while reading
+* all with your keyboard keys
+
+Issues:
+* Cursor position is reset to 0 when climbing.
+* If no more comments are present, tries to go down to nether realms
+* Upvoting/downvoting in quick succession doesn't register every action (see what you get by refreshing the page)
