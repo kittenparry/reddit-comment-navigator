@@ -35,20 +35,6 @@ if (typeof GM_addStyle != "undefined") {
 	}
 }
 
-// element.classList.add('my-class-name');
-// element.classList.remove('my-class-name');
-
-// container of comments
-let comments_div = document.getElementsByClassName('sitetable nestedlisting')[0]
-// only even children are comments, odds are separators
-// list of all comments
-let comments = [];
-for (i = 0; i < comments_div.children.length; i++) {
-	if ((i % 2) == 0) {
-		comments.push(comments_div.children[i]);
-	}
-}
-
 // oh no, a global variable
 // selected comment
 rcn_sc = 0;
@@ -56,32 +42,11 @@ rcn_sc = 0;
 rcn_dep = 0;
 // style class for selected comment
 rcn_sc_sel = 'rcn-selected-comment'
-// so to not scroll to view initially
-rcn_init = true;
-// selected element
-rcn_sel_el = null;
+// initial selection & selected global element variable
+rcn_sel_el = document.getElementsByClassName('sitetable nestedlisting')[0].children[0].children[2];
+rcn_sel_el.classList.add(rcn_sc_sel);
 
-// remove the styling from last selected value
-// add to the new one
-// set selected_comment to new value
-style_sel_com = (sel) => {
-	if (sel < 0) {
-		sel = 0;
-	}
-	comments[rcn_sc].children[2].classList.remove(rcn_sc_sel)
-	comments[sel].children[2].classList.add(rcn_sc_sel);
-	rcn_sel_el = comments[sel].children[2];
-	if (!rcn_init) {
-		comments[sel].scrollIntoView();
-		// comments[sel].focus(); // not working
-	}
-	rcn_init = false;
-	rcn_sc = sel;
-}
-
-// start with first comment selected
-style_sel_com(rcn_sc);
-
+// select prev & next elements on the same level
 change_sel_com_same = (dire) => {
 	if (rcn_sc <= 0 && dire == 'left') {
 		rcn_sc = 0;
@@ -99,6 +64,7 @@ change_sel_com_same = (dire) => {
 	check_if_in_view();
 };
 
+// move a level up or down
 change_sel_com_lvl = (dire) => {
 	if (rcn_dep == 0 && dire == 'up') {
 		return;
