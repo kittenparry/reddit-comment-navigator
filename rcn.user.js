@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         reddit Comment Navigator (rcn)
 // @namespace    https://github.com/kittenparry/
-// @version      0.1.0-a.1
+// @version      0.1.0-a.1.1
 // @description  Use keyboard keys to upvote, downvote, collapse/expand & navigate through comments
 // @author       kittenparry
 // @match        *://*.reddit.com/r/*/comments/*
@@ -20,7 +20,8 @@
  */
 
 /* CHANGELOG:
- * 0.1.0-a.1:  initial functional* release
+ * 0.1.0-a.1.1:  tidy up upvote/downvote code a bit
+ * 0.1.0-a.1:    initial functional* release
  */
 
 // append the custom css to page
@@ -153,11 +154,7 @@ collapse_sel = () => {
 };
 
 rcn_vote = (doot) => {
-	if (doot == 'up') {
-		rcn_sel_el.parentElement.children[1].children[0].click();
-	} else {
-		rcn_sel_el.parentElement.children[1].children[1].click();
-	}
+	rcn_sel_el.parentElement.children[1].children[doot].click();
 };
 
 /* * * * * * * * * * * * * * * *
@@ -184,10 +181,10 @@ red_com_nav = (e) => {
 				change_sel_com_lvl('down');
 				break;
 			case 81: // q - upvote
-				rcn_vote('up');
+				rcn_vote(0);
 				break;
 			case 69: // e - downvote
-				rcn_vote('down');
+				rcn_vote(1);
 				break;
 			case 82: // r - collapse/expand
 				collapse_sel();
