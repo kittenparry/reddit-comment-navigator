@@ -19,6 +19,6 @@ Current functionality:
 * all with your keyboard keys
 
 Issues:
-* Cursor position is reset to 0 when climbing.
-* If no more comments are present, tries to go down to nether realms
-* Upvoting/downvoting in quick succession doesn't register every action (see what you get by refreshing the page)
+* Cursor position resets to 0 when climbing (#1)
+* If no more comments are present, tries to go down to nether realms (#2)
+* Upvoting/downvoting in quick succession doesn't register every action (see what you get by refreshing the page) (#4)
