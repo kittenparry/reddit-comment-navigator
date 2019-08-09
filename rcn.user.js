@@ -9,6 +9,20 @@
 // @license      GPL-3.0-or-later
 // ==/UserScript==
 
+/* KEYBINDS:
+ * h - prev on same level
+ * l - next on same level
+ * j - move one level up
+ * k - move one level down
+ * q - upvote
+ * e - downvote
+ * r - collapse/expand
+ */
+
+/* CHANGELOG:
+ * 0.1.0-a.1:  initial functional* release
+ */
+
 // append the custom css to page
 var css = `
 .rcn-selected-comment {
@@ -184,13 +198,3 @@ red_com_nav = (e) => {
 }
 
 window.addEventListener('keydown', e => red_com_nav(e), false);
-
-/*
-h - prev on same level
-l - next on same level
-j - move one level up
-k - move one level down
-q - upvote
-e - downvote
-r - collapse/expand
-*/
