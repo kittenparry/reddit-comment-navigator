@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         reddit Comment Navigator
+// @name         reddit Comment Navigator (rcn)
 // @namespace    https://github.com/kittenparry/
 // @version      0.1.0-a.1
 // @description  Use keyboard keys to upvote, downvote, collapse/expand & navigate through comments
