@@ -82,10 +82,29 @@ style_sel_com = (sel) => {
 // start with first comment selected
 style_sel_com(rcn_sc);
 
+change_sel_com_same = (dire) => {
+	if (rcn_sc <= 0 && dire == 'left') {
+		rcn_sc = 0;
+		return;
+	}
+	rcn_sel_el.classList.remove(rcn_sc_sel);
+	if (dire == 'right') {
+		rcn_sc += 2;
+		rcn_sel_el = rcn_sel_el.parentElement.parentElement.children[rcn_sc].children[2];
+	} else {
+		rcn_sc -= 2;
+		rcn_sel_el = rcn_sel_el.parentElement.parentElement.children[rcn_sc].children[2];
+	}
+	rcn_sel_el.classList.add(rcn_sc_sel);
+	rcn_sel_el.scrollIntoView();
+};
+
 change_sel_com_lvl = (dire) => {
 	if (rcn_dep == 0 && dire == 'up') {
 		return;
 	}
+	// reset selected when changing depth
+	rcn_sc = 0;
 	rcn_sel_el.classList.remove(rcn_sc_sel);
 	if (dire == 'down') {
 		rcn_sel_el = rcn_sel_el.parentElement.children[3].children[0].children[0].children[2];
@@ -105,10 +124,10 @@ red_com_nav = (e) => {
 	if (type != 'text' && tag != 'textarea' && type != 'search') {
 		switch (e.keyCode) {
 			case 72: // h - prev on same level
-				style_sel_com(rcn_sc - 1);
+				change_sel_com_same('left');
 				break;
 			case 76: // l - next on same level
-				style_sel_com(rcn_sc + 1);
+				change_sel_com_same('right');
 				break;
 			case 74: // j - move one level up
 				change_sel_com_lvl('up');
