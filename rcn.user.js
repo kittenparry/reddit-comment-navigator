@@ -141,13 +141,9 @@ check_if_in_view = () => {
 	}
 };
 
-/* * * * * * * * * * * * * *
- * NAVIGATION RELATED END *
- * * * * * * * * * * * * *
-
- * * * * * * * * * * * * * * * *
- * FUNCTIONALITY RELATED BEGIN *
- * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * NAVIGATION RELATED END // FUNCTIONALITY RELATED BEGIN *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 collapse_sel = () => {
 	rcn_sel_el.children[0].children[0].click();
@@ -158,7 +154,7 @@ rcn_vote = (doot) => {
 };
 
 /* * * * * * * * * * * * * * * *
- * FUNCTIONALITY RELATED BEGIN *
+ * FUNCTIONALITY RELATED END *
  * * * * * * * * * * * * * * * */
 
 
