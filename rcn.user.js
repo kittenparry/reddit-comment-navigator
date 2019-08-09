@@ -12,7 +12,7 @@
 // append the custom css to page
 var css = `
 .rcn-selected-comment {
-	border: 2px solid #000
+	border: 1px dashed #333;
 }
 `;
 
