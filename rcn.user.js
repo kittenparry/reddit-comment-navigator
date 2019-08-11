@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         reddit Comment Navigator (rcn)
 // @namespace    https://github.com/kittenparry/
-// @version      0.1.1
+// @version      0.1.2
 // @description  Use keyboard keys to upvote, downvote, collapse/expand & navigate through comments
 // @author       kittenparry
 // @match        *://*.reddit.com/r/*/comments/*
@@ -20,6 +20,7 @@
  */
 
 /* CHANGELOG:
+ * 0.1.2:  use outline instead of border to not affect size of the element
  * 0.1.1:  tidy up upvote/downvote code a bit
  * 0.1.0:  initial functional* release
  */
@@ -27,7 +28,7 @@
 // append the custom css to page
 var css = `
 .rcn-selected-comment {
-	border: 1px dashed #333;
+	outline: 1px dashed #333;
 }
 `;
 
